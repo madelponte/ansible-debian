@@ -1,0 +1,22 @@
+- name: ensure necessary pakages are installed
+  become: true
+  become_user: root
+  apt:
+    name:
+      - openssh-server
+    state: present
+
+- name: Deploy SSH-Keys to remote host
+  authorized_key:
+    user: mdelponte
+    key: "{{ keystodeploy|map(attribute='sshkey')|join('\n') }}"
+    exclusive: true
+
+- name: install sshd config
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart sshd service

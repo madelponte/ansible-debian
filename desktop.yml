@@ -1,0 +1,31 @@
+---
+- hosts: all
+  roles:
+    - role: sudo
+    - role: repos
+  post_tasks:
+    - name: install base utilities
+      become: true
+      become_user: root
+      apt:
+        name:
+          - vim
+          - htop
+          - nfs-common
+          - rsync
+          - net-tools
+          - unzip
+          - zip
+          - dnsutils
+          - ntp
+          - curl
+          - iotop
+          - ripgrep
+          - fd-find
+          - build-essentials
+          - chrony
+          - deja-dup
+          - git
+          - flatpak
+          - printer-driver-brlaser
+        state: present

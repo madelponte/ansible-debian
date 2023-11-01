@@ -1,0 +1,26 @@
+---
+- hosts: all
+  roles:
+    - role: ssh
+    - role: sudo
+    - role: repos
+  post_tasks:
+    - name: install base utilities
+      become: true
+      become_user: root
+      apt:
+        name:
+          - vim
+          - htop
+          - nfs-common
+          - rsync
+          - net-tools
+          - unzip
+          - zip
+          - dnsutils
+          - ntp
+          - curl
+          - iotop
+          - ripgrep
+          - fd-find
+        state: present

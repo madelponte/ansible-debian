@@ -1,0 +1,44 @@
+---
+- hosts: all
+  roles:
+    - role: repos
+    - role: ssh
+    - role: sudo
+  post_tasks:
+    - name: install base utilities
+      become: true
+      become_user: root
+      apt:
+        name:
+          - vim
+          - htop
+          - nfs-common
+          - rsync
+          - net-tools
+          - unzip
+          - zip
+          - dnsutils
+          - ntp
+          - curl
+          - iotop
+          - ripgrep
+          - fd-find
+          - podman
+          - podman-compose
+        state: present
+    
+    - name: create podman group
+      become: true
+      become_user: root
+      group:
+        name: podman
+    
+    - name: create podman user
+      become: true
+      become_user: root
+      user:
+        name: podman
+        group: podman
+        home: /home/podman
+        shell: /bin/bash
+        password: '*'

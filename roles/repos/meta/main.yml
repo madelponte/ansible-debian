@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  role_name: repos
+  author: Marcus DelPonte
+  description: adds non-free repos to sources.list
+  license: Apache-2.0
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Debian
+      version:
+        - 12
+  galaxy_tags: []

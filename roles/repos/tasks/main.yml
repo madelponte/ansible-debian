@@ -1,0 +1,5 @@
+- name: Add contrib repository
+  replace:
+    dest: /etc/apt/sources.list
+    regexp: '^(deb(?!.* contrib).*)'
+    replace: '\1 contrib non-free'

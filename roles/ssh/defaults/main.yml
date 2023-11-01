@@ -1,0 +1,4 @@
+---
+keystodeploy:
+  - name: mdelponte
+    sshkey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOji4TsackClQCzWxLcpDMhb/6qDEZPFmFitNLQSXIK+
