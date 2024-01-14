@@ -9,7 +9,8 @@
 - name: Deploy SSH-Keys to remote host
   authorized_key:
     user: mdelponte
-    key: "{{ keystodeploy|map(attribute='sshkey')|join('\n') }}"
+    state: present
+    key: https://github.com/madelponte.keys
     exclusive: true
 
 - name: install sshd config
