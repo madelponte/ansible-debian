@@ -23,4 +23,5 @@
           - iotop
           - ripgrep
           - fd-find
+          - zstd
         state: present
