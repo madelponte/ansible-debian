@@ -17,7 +17,7 @@
           - unzip
           - zip
           - dnsutils
-          - ntp
+          - chrony
           - curl
           - iotop
           - ripgrep
